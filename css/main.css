@@ -1,0 +1,246 @@
+/* Style file created by Evan McLeod
+ =======================
+ 00: css variable
+ 01: color
+ 02: layout
+ 03: typography
+ 04: transition, animation, selector practice
+ 05: Any exploration
+ =======================
+ */
+ /** 00 css variable */
+ :root{
+    --body-color:hsla(358, 60%, 60%, 0.8);
+    --page-color:hsla(170, 67%, 70%, 0.797);
+    --sidebar-color: rgba(194, 141, 17, 0.845);
+    --page-width: 30%;
+    --page-top: 85%;
+    --bottom-bar-height: 15vh;
+  
+ }
+
+ /** 01 color */
+ body{
+    background-color: var(--body-color);
+ }
+ #zen-intro{
+    background-color: var(--page-color);
+ }
+ .sidebar{
+    background-color: var(--sidebar-color);
+ }
+/**  Try  h1,  **/
+
+
+/** 02 Layout **/
+div.explanation, div.requirements,div.benefits, div.participation{
+   position: fixed;
+   width: var(--page-width);
+   top:var(--page-top);
+   /* add the background image to the page */
+}
+
+div.explanation{
+   left: 1%;
+}
+div.requirements{
+   left: 18%;
+}
+
+/* do the layout on the rest of the page */
+
+/* side bar */
+.sidebar{
+   position: absolute;
+   top: 20%;
+   right: 0;
+   bottom: 0;
+   /* adjust the width and height */
+   width: 20%;
+}
+/* extra1-4 decoration block */
+div.extra2{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   height: var(--bottom-bar-height);
+   background-color: rgb(203, 0, 221);
+}
+
+div.extra1{
+   position: fixed;
+   top: 10vh;
+   left: 20%;
+   width: 30%;
+   height:80%;
+   background-image: url(../img/newspaper2.jpg);
+   z-index: -1;
+   transform: rotate(30deg);
+}
+
+/* Finish the introduction  layout */
+section.intro{
+   position: fixed;
+   top: 10vh;
+   left: 20%;
+   width: 30%;
+   height:80vh;
+   padding: 1%;
+   background-image: url(../img/newspaper3.jpg);
+}
+/* should have four file tabs */
+div.explanation h3, div.requirements h3{
+   margin-top: -10%;
+   padding-left: 10px;
+   width: 100px;
+   border: 3px dashed black;
+   background-color: rgb(18, 113, 151);
+}
+
+/** 03 Typography **/
+@font-face{
+   font-family: 'myfont';
+   src: url(../fonts/chunkfive.eot);
+}
+
+header h1{
+   font-family: 'myfont', sans-serif;
+   font-weight:100;
+   font-size: 1.25em;
+   letter-spacing: normal;
+   line-height: 1em;
+   text-transform: uppercase;
+}
+
+header h2{
+   /* use a different web font in your exercise */
+   font-family: 'Ranchers', cursive;
+   /* more practice on the text-indent, font-size ....... */
+}
+
+a{
+   text-decoration: none;
+}
+li{
+   list-style-type: none;
+}
+#design-selection h3{
+   visibility: hidden;
+   /*    
+   display: none;
+   */   
+}
+
+
+/* please hide the archives and resources */
+#design-archives, #zen-resources{
+   display: none;
+}
+
+/* 04: transition, animation, selector practice */
+
+/* selector */
+a:hover{
+   /* pick a style */
+   font-size: 1.5em;
+}
+h3:hover{
+   color:rgb(52, 37, 186);
+}
+div.explanation:active{
+   top: 15vh;
+   height: 90vh;
+}
+/* Finish the active action for requirement/benefits/participation */
+p::first-letter{
+   font-size: 1.5em;
+   text-transform: uppercase;
+}
+
+p:nth-child(2n){
+   background-color: rgb(156, 156, 252);
+}
+p:nth-child(2n+1){
+   background-color: rgba(5, 207, 29, 0.555);
+}
+
+/* Try text-shadow, box-shadow */
+p{
+   box-shadow: 2px 2px 100px gray;
+}
+/* border radius of the tab */
+div.explanation h3, div.requirements h3, div.benefits h3, div.participation h3{
+   border-radius: 20px;  /* use your own design */
+   border-top: solid rgb(172, 2, 2) 2px;
+   padding-left: 5px;
+}
+
+ul{
+   list-style-image: url(../img/star.png);
+}
+
+/* transition transform */
+section.intro h3 ~p{
+   text-transform: capitalize;
+   opacity: 1;
+   transition:all 3s ease-in-out;
+}
+
+section.intro h3:hover ~p{
+   opacity: 0;
+   transform: scale(0.5);
+}
+footer{
+   position: fixed;
+   bottom: 1vh;
+   z-index: 4; 
+   /*animation: */
+}
+h2{
+   background-image: linear-gradient(0deg,rgba(11, 11, 110, 0.733));
+   animation: 1s infinite running changeColor;
+}
+
+@keyframes changeColor{
+   from{background-image: linear-gradient(90deg, rgb(102, 4, 4));}
+   50%{background-image: linear-gradient(180deg, rgba(68, 68, 70, 0.852));}
+   to{background-image: linear-gradient(270deg,, rgb(178, 23, 74));}
+}
+@keyframes backandforth{
+   
+}
+
+/*05 Fancy Stuff*/ 
+aside.sidebar{
+    clip-path:
+}
+
+
+/*This is the in class assignment with box grid layout*/
+.one{
+  grid-column: 2/4;
+  grid-row: 2/4;
+}
+
+.two{
+  grid-column: 1/ 4;
+  grid-row: 1/2;
+}
+.three{
+  grid-column:1;
+  grid-row:2/4;
+}
+.four{
+  grid-row:1/3;
+  grid-column:4/5;
+}
+.five{
+  grid-column:1/4;
+  grid-row:4/5;
+  
+}
+.six{
+  grid-column:3/5;
+  grid-row:3/5;
+}
